@@ -28,60 +28,48 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
-            <span className="text-2xl font-bold text-foreground">SkyView</span>
+          <Link href="/" className="flex-shrink-0 group">
+            <span className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">SkyView</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 flex-row-reverse">
             <Link
-              href="#"
-              className="text-sm text-foreground hover:text-accent transition-colors"
-            >
-              דף הבית
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-foreground hover:text-accent transition-colors"
-            >
-              תקרות מתוחות
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-foreground hover:text-accent transition-colors"
-            >
-              מחירים
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-foreground hover:text-accent transition-colors"
+              href="#projects"
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
             >
               פרויקטים
             </Link>
             <Link
-              href="#"
-              className="text-sm text-foreground hover:text-accent transition-colors"
-            >
-              לעסקים
-            </Link>
-            <Link
-              href="#"
-              className="text-sm text-foreground hover:text-accent transition-colors"
+              href="#about"
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
             >
               אודות
+            </Link>
+            <Link
+              href="#services"
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+            >
+              שירותים
+            </Link>
+            <Link
+              href="#faq"
+              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+            >
+              שאלות נפוצות
             </Link>
           </nav>
 
           {/* CTA Button + Mobile Menu */}
           <div className="flex items-center gap-4 flex-row-reverse">
-            <button className="hidden md:inline-block px-6 py-2 bg-accent text-accent-foreground rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors">
+            <button className="hidden md:inline-block px-6 py-2.5 bg-accent text-accent-foreground rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors shadow-sm">
               להצעת מחיר
             </button>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden"
+              className="md:hidden text-foreground"
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -95,44 +83,32 @@ export function Header() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <nav className="md:hidden pb-4 space-y-3 flex flex-col-reverse">
-            <button className="w-full px-6 py-2 bg-accent text-accent-foreground rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors">
+            <button className="w-full px-6 py-2.5 bg-accent text-accent-foreground rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors">
               להצעת מחיר
             </button>
             <Link
-              href="#"
-              className="block text-sm text-foreground hover:text-accent py-2"
+              href="#faq"
+              className="block text-sm font-medium text-foreground hover:text-accent py-2"
+            >
+              שאלות נפוצות
+            </Link>
+            <Link
+              href="#services"
+              className="block text-sm font-medium text-foreground hover:text-accent py-2"
+            >
+              שירותים
+            </Link>
+            <Link
+              href="#about"
+              className="block text-sm font-medium text-foreground hover:text-accent py-2"
             >
               אודות
             </Link>
             <Link
-              href="#"
-              className="block text-sm text-foreground hover:text-accent py-2"
-            >
-              לעסקים
-            </Link>
-            <Link
-              href="#"
-              className="block text-sm text-foreground hover:text-accent py-2"
+              href="#projects"
+              className="block text-sm font-medium text-foreground hover:text-accent py-2"
             >
               פרויקטים
-            </Link>
-            <Link
-              href="#"
-              className="block text-sm text-foreground hover:text-accent py-2"
-            >
-              מחירים
-            </Link>
-            <Link
-              href="#"
-              className="block text-sm text-foreground hover:text-accent py-2"
-            >
-              תקרות מתוחות
-            </Link>
-            <Link
-              href="#"
-              className="block text-sm text-foreground hover:text-accent py-2"
-            >
-              דף הבית
             </Link>
           </nav>
         )}

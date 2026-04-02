@@ -1,7 +1,7 @@
 export function Hero() {
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image with Overlay */}
+      {/* Background Image with Warm Overlay */}
       <div
         className="absolute inset-0"
         style={{
@@ -11,48 +11,52 @@ export function Hero() {
           backgroundPosition: "center",
         }}
       >
-        {/* Dark warm overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/20"></div>
+        {/* Warm taupe-brown overlay for premium feel */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-amber-950/35 to-black/40" style={{
+          mixBlendMode: 'multiply'
+        }}></div>
+        {/* Additional warmth layer */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-right">
-        <div className="space-y-6">
-          {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight text-pretty">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-right">
+        <div className="space-y-8">
+          {/* Main Heading - Premium scale */}
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-tight text-pretty font-sans" style={{ letterSpacing: '-0.02em' }}>
             תקרות מתוחות
             <br />
-            מעוצבות לבית ולעסק
+            <span className="text-amber-50">מעוצבות לבית</span>
           </h1>
 
           {/* Supporting Paragraph */}
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl ms-auto leading-relaxed">
-            פתרונות תקרה יוקרתיים עם גימורים מבריקים, מט, סאטן, תאורה משולבת ועיצוב בהתאמה אישית.
+          <p className="text-lg md:text-xl text-amber-50 max-w-2xl ms-auto leading-relaxed font-light">
+            פתרונות תקרה יוקרתיים עם גימורים בחירה, תאורה משולבת ועיצוב בהתאמה אישית לכל חלל.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex gap-4 flex-row-reverse pt-4">
-            <button className="px-8 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 transition-colors">
+          <div className="flex gap-4 flex-row-reverse pt-6">
+            <button className="px-8 py-3 bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
               לקבלת הצעת מחיר
             </button>
-            <button className="px-8 py-3 border-2 border-white text-white rounded-lg font-medium hover:bg-white/10 transition-colors">
+            <button className="px-8 py-3 border-2 border-white text-white rounded-lg font-medium hover:bg-white/10 transition-colors duration-300">
               לצפייה בפרויקטים
             </button>
           </div>
 
           {/* Proof Row */}
-          <div className="pt-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 border-t border-white/20">
+          <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 border-t border-white/30">
             <div className="text-right">
-              <p className="text-sm text-gray-300">אחריות ל-10 שנים</p>
+              <p className="text-sm text-amber-50/80">אחריות ל-10 שנים</p>
             </div>
             <div className="text-right">
-              <p className="text-sm text-gray-300">שירות בכל הארץ</p>
+              <p className="text-sm text-amber-50/80">שירות בכל הארץ</p>
             </div>
             <div className="text-right">
-              <p className="text-sm text-gray-300">מעל 1000 התקנות</p>
+              <p className="text-sm text-amber-50/80">מעל 1000 התקנות</p>
             </div>
             <div className="text-right">
-              <p className="text-sm text-gray-300">משנת 2017</p>
+              <p className="text-sm text-amber-50/80">משנת 2017</p>
             </div>
           </div>
         </div>

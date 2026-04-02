@@ -6,35 +6,35 @@ import { ArrowUpLeft } from "lucide-react"
 const projects = [
   {
     id: 1,
-    title: "דירה עדכנית בתל אביב",
+    title: "סלון יוקרתי בתל אביב",
     category: "דירה פרטית",
     location: "תל אביב",
     finish: "מבריק",
-    image: "/images/hously-1.png",
+    image: "/images/project-luxury-living.jpg",
   },
   {
     id: 2,
-    title: "משרדי סטארטאפ",
-    category: "מסחרי",
-    location: "רמת גן",
-    finish: "מט",
-    image: "/images/hously-2.png",
+    title: "אמבטיה עדינה בהרצליה",
+    category: "חידוש דירה",
+    location: "הרצליה",
+    finish: "סאטן",
+    image: "/images/project-elegant-bathroom.jpg",
   },
   {
     id: 3,
-    title: "בית פרטי מלודי",
+    title: "חדר שינה מודרני בגבעתיים",
     category: "דירה פרטית",
-    location: "הרצליה",
-    finish: "סאטן",
-    image: "/images/hously-3.png",
+    location: "גבעתיים",
+    finish: "מט",
+    image: "/images/project-modern-bedroom.jpg",
   },
   {
     id: 4,
-    title: "חנות עיצוב פרימיום",
-    category: "קמעונאות",
-    location: "בני ברק",
+    title: "משרדים משודרגים ברמת גן",
+    category: "מסחרי",
+    location: "רמת גן",
     finish: "מבריק + תאורה",
-    image: "/images/hously-4.png",
+    image: "/images/project-commercial-lobby.jpg",
   },
 ]
 
@@ -69,7 +69,7 @@ export function Projects() {
     <section id="projects" className="py-32 md:py-40 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-          <div>
+          <div className="text-right">
             <p className="text-sm text-accent font-medium tracking-widest mb-3">פרויקטים מובחרים</p>
             <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
               דוגמאות מהעבודות שלנו
@@ -77,7 +77,7 @@ export function Projects() {
           </div>
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors group flex-row-reverse"
+            className="inline-flex items-center gap-2 text-sm text-muted hover:text-foreground transition-colors group flex-row-reverse whitespace-nowrap"
           >
             לכל הפרויקטים
             <ArrowUpLeft className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -92,7 +92,7 @@ export function Projects() {
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
             >
-              <div ref={(el) => (imageRefs.current[index] = el)} className="relative overflow-hidden aspect-[4/3] mb-6 rounded-lg">
+              <div ref={(el) => (imageRefs.current[index] = el)} className="relative overflow-hidden aspect-[4/3] mb-6 rounded-lg border border-border">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}

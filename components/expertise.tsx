@@ -1,38 +1,38 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Home, Droplets, Lightbulb, Image, Building2, Music } from "lucide-react"
+import Image from "next/image"
 
 const serviceCards = [
   {
     title: "תקרה מתוחה לסלון",
     description: "מראה אחיד ויוקרתי למרחבים גדולים",
-    icon: Home,
+    image: "/images/service-living-room.jpg",
   },
   {
     title: "תקרה מתוחה לאמבטיה",
     description: "עמידה בלחות ונקיוני דיוק",
-    icon: Droplets,
+    image: "/images/service-bathroom.jpg",
   },
   {
     title: "תקרה מתוחה מוארת",
     description: "שילוב תאורה LED משולבת בתקרה",
-    icon: Lightbulb,
+    image: "/images/service-lighting.jpg",
   },
   {
     title: "תקרה מתוחה עם הדפס",
     description: "עיצוב מודפס בהתאמה אישית",
-    icon: Image,
+    image: "/images/service-printed.jpg",
   },
   {
     title: "תקרה מתוחה לעסקים",
     description: "פתרונות למשרדים ומתחמים מסחריים",
-    icon: Building2,
+    image: "/images/service-commercial.jpg",
   },
   {
     title: "תקרה מתוחה אקוסטית",
     description: "בידוד קול וספיגת רעשים",
-    icon: Music,
+    image: "/images/service-acoustic.jpg",
   },
 ]
 
@@ -62,18 +62,17 @@ export function Expertise() {
   }, [])
 
   return (
-    <section id="services" ref={sectionRef} className="py-32 md:py-40 bg-secondary/30">
+    <section id="services" ref={sectionRef} className="py-32 md:py-40 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-16">
-          <p className="text-sm text-accent font-medium tracking-widest mb-3">קטגוריות ישירוות</p>
+        <div className="max-w-2xl mb-16 text-right">
+          <p className="text-sm text-accent font-medium tracking-widest mb-3">קטגוריות שירותים</p>
           <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight text-pretty">
             פתרונות לכל סוג חלל
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {serviceCards.map((service, index) => {
-            const Icon = service.icon
             return (
               <div
                 key={service.title}
@@ -81,14 +80,27 @@ export function Expertise() {
                   itemRefs.current[index] = el
                 }}
                 data-index={index}
-                className={`group p-8 rounded-lg bg-background border border-border hover:border-accent transition-all duration-500 cursor-pointer ${
+                className={`group overflow-hidden rounded-lg border border-border hover:border-accent transition-all duration-500 cursor-pointer ${
                   visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <Icon className="w-8 h-8 text-accent mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-lg font-semibold text-foreground mb-3">{service.title}</h3>
-                <p className="text-muted text-sm leading-relaxed">{service.description}</p>
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden bg-secondary">
+                  <img
+                    src={service.image || "/placeholder.svg"}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6 bg-card">
+                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted text-sm leading-relaxed">{service.description}</p>
+                </div>
               </div>
             )
           })}

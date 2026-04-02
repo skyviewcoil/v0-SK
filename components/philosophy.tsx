@@ -46,20 +46,20 @@ export function Philosophy() {
   }, [])
 
   return (
-    <section id="about" className="py-32 md:py-40 bg-background">
+    <section id="about" className="py-40 md:py-48 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Left column - Title and intro */}
-          <div className="space-y-8">
-            <div>
-              <p className="text-sm text-accent font-medium tracking-widest mb-3">SkyView</p>
-              <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight text-pretty">
-                פתרונות תקרה מדויקים, נקיים ומהירים יותר
+          <div className="space-y-10">
+            <div className="space-y-6">
+              <p className="text-sm text-accent font-medium tracking-widest uppercase">בתחום הענין</p>
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight text-pretty">
+                פתרונות תקרה מדויקים, נקיים ומהירים
               </h2>
             </div>
 
             <p className="text-lg text-muted leading-relaxed max-w-xl">
-              תקרה מתוחה מאפשרת לקבל מראה אחיד, יוקרתי ונקי בזמן עבודה קצר, עם אפשרות לשלב תאורה, הדפסים, פרופילים מיוחדים ופתרונות לחללים פרטיים ומסחריים.
+              תקרה מתוחה מאפשרת לקבל מראה אחיד, יוקרתי ונקי בזמן עבודה קצר, עם אפשרות לשלב תאורה, הדפסים, פרופילים מיוחדים ופתרונות לכל סוג חלל.
             </p>
           </div>
 
@@ -72,12 +72,12 @@ export function Philosophy() {
                   itemRefs.current[index] = el
                 }}
                 data-index={index}
-                className={`p-6 rounded-lg bg-secondary/50 border border-border transition-all duration-700 ${
+                className={`p-7 rounded-lg bg-card border border-border hover:border-accent hover:shadow-md transition-all duration-700 ${
                   visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-3">{item.title}</h3>
                 <p className="text-muted text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
