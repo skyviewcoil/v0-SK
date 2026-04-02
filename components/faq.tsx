@@ -1,84 +1,113 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Plus } from "lucide-react"
 
 const faqs = [
   {
     question: "מהי תקרה מתוחה?",
     answer:
-      "תקרה מתוחה היא רשת פוליסטר או בד מיוחד המתוחה בפרופילים אלומיניום מסביב החלל. זה יוצר משטח חלק ואחיד בגימור שנבחר, מה שמאפשר להסתיר עמודים ותעלות אוויר, ולשלב תאורה ופתרונות קונפורטיים.",
+      "תקרה מתוחה היא ממברנה מפוליסטר או PVC המתוחה בפרופילי אלומיניום מסביב לחלל. היא יוצרת משטח חלק ואחיד בגימור שנבחר, מאפשרת להסתיר תעלות ואלמנטים טכניים, ולשלב תאורה ופתרונות מתקדמים.",
   },
   {
     question: "כמה זמן לוקחת התקנה?",
     answer:
-      "זמן ההתקנה תלוי בגודל החלל, אך בממוצע תקרה מתוחה בחדר רגיל תוקן ב-1-2 ימים בלבד. זה מהיר יחסית לשיטות מסורתיות כמו גבס, ובנוסף - כמעט ללא אבק או לכלוך.",
+      "זמן ההתקנה תלוי בגודל החלל, אך בממוצע תקרה מתוחה בחדר רגיל מותקנת ב-1-2 ימים בלבד. זה מהיר משמעותית לעומת גבס, ובנוסף העבודה נקייה כמעט ללא אבק או לכלוך.",
   },
   {
     question: "האם זה מתאים לאמבטיה?",
     answer:
-      "כן, ממש מתאים! תקרות מתוחות עמידות בפני לחות גבוהה ונוזלים, מה שהופכות אותן לאידיאליות לחדרי אמבטיה ומטבחים. הן לא ספוגות, לא מתפיחות, ופשוטות לנקוי.",
+      "בהחלט. תקרות מתוחות עמידות בפני לחות גבוהה ונוזלים, מה שהופך אותן לאידיאליות לחדרי אמבטיה ומטבחים. הן לא סופגות לחות, לא מתנפחות, ופשוטות לניקוי.",
   },
   {
     question: "אילו גימורים קיימים?",
     answer:
-      "ישנם שלושה גימורים עיקריים: מבריק (משטח זוהר הקולט אור), סאטן (מראה חלק ומעודן), ומט (סיום לא מחזיר אור). בחר בהתאם לעיצוב החדר וההשפעה הרצויה.",
+      "ישנם שלושה גימורים עיקריים: מבריק (משטח זוהר המשקף את החלל), סאטן (מראה חלק עם זוהר עדין), ומט (סיום רך ללא החזרת אור). הבחירה תלויה בסגנון העיצוב ובאפקט הרצוי.",
   },
   {
-    question: "האם אפשר לשלב תאורה?",
+    question: "אילו סוגי תאורה אפשר לשלב?",
     answer:
-      "בהחלט! אנחנו מספקים פסי לד שקועים, תאורה היקפית, ספוטים ועוד. התאורה משולבת בתקרה המתוחה, יוצרת אור רך ומעוצב בהתאמה אישית לחלל שלך.",
+      "אנחנו מספקים שבעה סוגי תאורה שונים: פסי לד שקועים, פסי תאורה מגנטיים, ספוטים שקועים, תאורה צמודת תקרה, תאורה תלויה, תקרה מוארת באופן אחיד, ותקרה מוארת עם הדפס. כל סוג מותאם לצרכים שונים.",
   },
   {
     question: "מה עם אחריות?",
     answer:
-      "כל התקרות המתוחות שלנו מגיעות עם אחריות של 10 שנים כנגד בעיות ביצוע ופגיעות. אנחנו גם מספקים שירות תחזוקה ותמיכה טכנית בכל שעה שתזדקק.",
+      "כל התקרות המתוחות שלנו מגיעות עם אחריות של 10 שנים כנגד בעיות ביצוע ופגמים. אנחנו גם מספקים שירות תחזוקה ותמיכה טכנית בכל עת שתזדקקו.",
   },
 ]
 
 export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [isRevealed, setIsRevealed] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsRevealed(true)
+        }
+      },
+      { threshold: 0.1 },
+    )
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   const toggleQuestion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
   }
 
   return (
-    <section id="faq" className="py-40 md:py-48 bg-background">
+    <section ref={sectionRef} id="faq" className="py-32 md:py-44 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mb-16 text-right">
-          <p className="text-sm text-accent font-medium tracking-widest uppercase mb-3">שאלות נפוצות</p>
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight text-pretty">
-            יש לך שאלות?
-          </h2>
-        </div>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
+          {/* Section header - sticky on desktop */}
+          <div className={`lg:col-span-4 lg:sticky lg:top-32 lg:self-start text-right transition-all duration-1000 ${
+            isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}>
+            <p className="text-accent text-sm font-medium tracking-widest mb-4">שאלות נפוצות</p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+              יש לך<br />שאלות?
+            </h2>
+            <p className="text-muted text-lg leading-relaxed">
+              כאן תמצאו תשובות לשאלות הנפוצות ביותר על תקרות מתוחות.
+            </p>
+          </div>
 
-        <div className="max-w-3xl">
-          {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-border">
-              <button
-                onClick={() => toggleQuestion(index)}
-                className="w-full py-7 flex items-start justify-between gap-6 text-right group flex-row-reverse hover:text-accent transition-colors"
-              >
-                <span className="text-lg font-medium text-foreground group-hover:text-accent transition-colors">
-                  {faq.question}
-                </span>
-                <Plus
-                  className={`w-6 h-6 text-accent flex-shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? "rotate-45" : "rotate-0"
+          {/* FAQ items */}
+          <div className={`lg:col-span-8 transition-all duration-1000 delay-200 ${
+            isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}>
+            {faqs.map((faq, index) => (
+              <div key={index} className="border-b border-border">
+                <button
+                  onClick={() => toggleQuestion(index)}
+                  className="w-full py-6 md:py-7 flex items-start justify-between gap-6 text-right group flex-row-reverse hover:text-accent transition-colors"
+                >
+                  <span className="text-base md:text-lg font-medium text-foreground group-hover:text-accent transition-colors text-right flex-1">
+                    {faq.question}
+                  </span>
+                  <div className="flex-shrink-0 mt-0.5">
+                    <Plus
+                      className={`w-5 h-5 text-accent transition-transform duration-300 ${
+                        openIndex === index ? "rotate-45" : "rotate-0"
+                      }`}
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
-                  strokeWidth={1.5}
-                />
-              </button>
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                <p className="text-muted leading-relaxed pb-8 pr-12 text-base">{faq.answer}</p>
+                >
+                  <p className="text-muted leading-relaxed pb-7 text-right text-base">{faq.answer}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

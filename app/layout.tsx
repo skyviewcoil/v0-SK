@@ -8,9 +8,9 @@ const geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "SkyView - תקרות מתוחות מעוצבות",
+  title: "SkyView - תקרות מתוחות יוקרתיות",
   description:
-    "פתרונות תקרה יוקרתיים עם גימורים מבריקים, מט, סאטן, תאורה משולבת ועיצוב בהתאמה אישית לבית ולעסק.",
+    "תקרות מתוחות עם שלושה גימורים, שבעה סוגי תאורה ועיצוב בהתאמה אישית. התקנה מהירה ונקייה לבית ולעסק.",
   generator: "v0.app",
   icons: {
     icon: [

@@ -26,50 +26,60 @@ export function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="h-20 flex items-center justify-between">
-          {/* Logo */}
+        <div className="h-20 flex items-center justify-between flex-row-reverse">
+          {/* Logo - right side for RTL */}
           <Link href="/" className="flex-shrink-0 group">
-            <span className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors">SkyView</span>
+            <span className={`text-2xl font-bold transition-colors ${
+              isScrolled ? "text-foreground group-hover:text-accent" : "text-white group-hover:text-accent"
+            }`}>SkyView</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 flex-row-reverse">
+          {/* Desktop Navigation - center */}
+          <nav className="hidden md:flex items-center gap-10">
             <Link
-              href="#projects"
-              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+              href="#faq"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
+              }`}
             >
-              פרויקטים
-            </Link>
-            <Link
-              href="#about"
-              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
-            >
-              אודות
+              שאלות נפוצות
             </Link>
             <Link
               href="#services"
-              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
+              }`}
             >
               שירותים
             </Link>
             <Link
-              href="#faq"
-              className="text-sm font-medium text-foreground hover:text-accent transition-colors"
+              href="#about"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
+              }`}
             >
-              שאלות נפוצות
+              אודות
+            </Link>
+            <Link
+              href="#projects"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
+              }`}
+            >
+              פרויקטים
             </Link>
           </nav>
 
-          {/* CTA Button + Mobile Menu */}
-          <div className="flex items-center gap-4 flex-row-reverse">
-            <button className="hidden md:inline-block px-6 py-2.5 bg-accent text-accent-foreground rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors shadow-sm">
+          {/* CTA Button + Mobile Menu - left side for RTL */}
+          <div className="flex items-center gap-4">
+            <button className="hidden md:inline-block px-6 py-2.5 bg-accent text-accent-foreground text-sm font-medium hover:bg-accent/90 transition-colors">
               להצעת מחיר
             </button>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-foreground"
+              className={`md:hidden ${isScrolled ? "text-foreground" : "text-white"}`}
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
@@ -82,34 +92,38 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden pb-4 space-y-3 flex flex-col-reverse">
-            <button className="w-full px-6 py-2.5 bg-accent text-accent-foreground rounded-lg text-sm font-medium hover:bg-accent/90 transition-colors">
-              להצעת מחיר
-            </button>
+          <nav className="md:hidden pb-6 pt-2 border-t border-border/20 space-y-1 bg-background/95 backdrop-blur-md -mx-4 px-4">
             <Link
-              href="#faq"
-              className="block text-sm font-medium text-foreground hover:text-accent py-2"
+              href="#projects"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-sm font-medium text-foreground hover:text-accent py-3 text-right"
             >
-              שאלות נפוצות
-            </Link>
-            <Link
-              href="#services"
-              className="block text-sm font-medium text-foreground hover:text-accent py-2"
-            >
-              שירותים
+              פרויקטים
             </Link>
             <Link
               href="#about"
-              className="block text-sm font-medium text-foreground hover:text-accent py-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-sm font-medium text-foreground hover:text-accent py-3 text-right"
             >
               אודות
             </Link>
             <Link
-              href="#projects"
-              className="block text-sm font-medium text-foreground hover:text-accent py-2"
+              href="#services"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-sm font-medium text-foreground hover:text-accent py-3 text-right"
             >
-              פרויקטים
+              שירותים
             </Link>
+            <Link
+              href="#faq"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-sm font-medium text-foreground hover:text-accent py-3 text-right"
+            >
+              שאלות נפוצות
+            </Link>
+            <button className="w-full mt-4 px-6 py-3 bg-accent text-accent-foreground text-sm font-medium hover:bg-accent/90 transition-colors">
+              להצעת מחיר
+            </button>
           </nav>
         )}
       </div>
