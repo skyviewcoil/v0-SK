@@ -41,11 +41,47 @@ export function Finishes() {
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12">
-          סוגי גימור עיקריים
-        </h2>
+        {/* Intro Section with Image */}
+        <div className="mb-20 grid md:grid-cols-2 gap-16 items-center">
+          {/* Image on right */}
+          <div className="relative aspect-square overflow-hidden rounded-lg order-first md:order-last">
+            <Image
+              src="/images/service-finishes-detail.jpg"
+              alt="שלושה גימורים של תקרה מתוחה - מבריק, סאטן, מט"
+              fill
+              className="object-cover"
+            />
+          </div>
 
-        {/* Tabs */}
+          {/* Content on left */}
+          <div className="md:order-first text-right">
+            <p className="text-sm font-semibold text-accent mb-4">
+              בחירת משטח
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              גימור התקרה
+            </h2>
+            <p className="text-lg text-muted mb-6 leading-relaxed">
+              תקרה מתוחה זמינה בשלושה גימורים ראשיים, כל אחד מהם מציע הערכה שונה וסגנון ייחודי. בחירת הגימור משפיעה הן על המראה הן על התנהגות האור בחלל.
+            </p>
+            <ul className="space-y-2 text-muted text-sm">
+              <li className="flex items-center justify-end gap-2">
+                <span>מבריק — זוהר וחזק, משקף אור ותמונות</span>
+                <span className="text-accent">•</span>
+              </li>
+              <li className="flex items-center justify-end gap-2">
+                <span>סאטן — ברק קל וקלוש, איזון וגמישות</span>
+                <span className="text-accent">•</span>
+              </li>
+              <li className="flex items-center justify-end gap-2">
+                <span>מט — לא מבריק, קלאסי ודקיק</span>
+                <span className="text-accent">•</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Finish Selector Tabs */}
         <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-end">
           {finishes.map((finish) => (
             <button

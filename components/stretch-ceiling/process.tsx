@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+
 export function Process() {
   const steps = [
     {
@@ -29,24 +31,53 @@ export function Process() {
   ]
 
   return (
-    <section className="py-24 md:py-32 bg-background">
+    <section className="py-24 md:py-32 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-16">
-          איך מתבצע התהליך
-        </h2>
+        <div className="grid md:grid-cols-2 gap-16 items-start mb-16">
+          {/* Text Section */}
+          <div className="text-right md:order-last">
+            <p className="text-sm font-semibold text-accent mb-4">
+              תהליך
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+              איך מתבצע התהליך
+            </h2>
+            <p className="text-lg text-muted mb-12 leading-relaxed">
+              מהשיחה הראשונית דרך ההתקנה, תהליך דדיקטד ומקצועי כדי להבטיח את התוצאה המושלמת.
+            </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {steps.map((step, index) => (
-            <div key={index} className="p-8 bg-card rounded-lg border border-border">
-              <div className="mb-4">
-                <span className="text-5xl font-bold text-accent">{step.number}</span>
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-3">
-                {step.title}
-              </h3>
-              <p className="text-muted leading-relaxed">{step.description}</p>
+            <div className="space-y-8">
+              {steps.map((step, index) => (
+                <div key={index} className="flex items-start gap-6">
+                  {/* Number */}
+                  <div className="flex-shrink-0 pt-1">
+                    <span className="text-4xl font-bold text-accent opacity-40">
+                      {step.number}
+                    </span>
+                  </div>
+                  {/* Content */}
+                  <div className="text-right flex-1">
+                    <h3 className="text-lg font-bold text-foreground mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-muted leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Image Section */}
+          <div className="relative aspect-square overflow-hidden rounded-lg md:order-first">
+            <Image
+              src="/images/service-installation-process.jpg"
+              alt="תהליך התקנת תקרה מתוחה"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
     </section>

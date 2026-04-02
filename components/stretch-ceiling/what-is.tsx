@@ -4,48 +4,60 @@ import Image from "next/image"
 
 export function WhatIsStretchCeiling() {
   return (
-    <section className="py-24 md:py-32 bg-background">
+    <section className="py-24 md:py-32 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text on right (RTL) */}
-          <div className="order-2 md:order-2">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* Image on the right (RTL) */}
+          <div className="relative aspect-square overflow-hidden rounded-lg order-first md:order-last">
+            <Image
+              src="/images/service-what-is-ceiling.jpg"
+              alt="מבנה תקרה מתוחה - יריעה משוזרת במסגרת אלומיניום"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* Content on the left (RTL) */}
+          <div className="md:order-first text-right">
+            <p className="text-sm font-semibold text-accent mb-4">
+              הגדרה וטכנולוגיה
+            </p>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
-              מהי תקרה מתוחה
+              מה בדיוק הוא תקרה מתוחה?
             </h2>
 
             <div className="space-y-6 text-lg text-muted leading-relaxed">
               <p>
-                תקרה מתוחה היא מערכת תקרה המבוססת על יריעה ייעודית (בדרך כלל PVC או פוליאסטר)
-                המתוחה על גבי פרופילים היקפיים המותקנים על קירות החלל.
+                תקרה מתוחה היא מערכת תקרה המורכבת משתי רכיבים עיקריים: מסגרת אלומיניום המחוברת לקיר או מבנה קיים, ויריעה דקה של פלדות PVC או פוליאסטר המשוזרת בתוך המסגרת.
               </p>
 
               <p>
-                המערכת מאפשרת קבלת משטח מדויק, חלק ואחיד, ללא שגעים או אי-סדרים שנוצרים מעבודות
-                רטובות או בנייה.
+                היריעה המתוחה יוצרת חלל אוויר בין התקרה הקיימת לבין היריעה החדשה. חלל זה משמש לשילוב מערכות תאורה, עקמול אוויר, צינורות וחוטי חשמל, וכל זאת תוך הבלטת מראה חלק ודקיק.
               </p>
 
               <p>
-                התקרה המתוחה מתאימה לפתרונות עיצוב, חידוש תקרה קיימת, הסתרת תשתיות (צנרת,
-                כבלים), שילוב תאורה משולבת, וקבלת אפקט ויזואלי דרמטי או מינימליסטי בהתאם
-                לבחירת הגימור.
-              </p>
-
-              <p>
-                פתרון זה נפוץ וידוע בחללים פרטיים (דירות, בתים), מסחריים (משרדים, חנויות),
-                ציבוריים (בתי מלון, מסעדות), וגם בחללים ייעודיים (מקווות, חדרי חזוקה).
+                התיקנון המקצועי מאפשר שליטה מדויקת בטנזיון היריעה, הצבע, הגימור, וההשלמה עם פתרונות תאורה מתקדמים.
               </p>
             </div>
-          </div>
 
-          {/* Image on left (RTL) */}
-          <div className="order-1 md:order-1">
-            <div className="relative aspect-square rounded-lg overflow-hidden bg-secondary">
-              <Image
-                src="/images/philosophy-install.jpg"
-                alt="מערכת תקרה מתוחה בתהליך התקנה"
-                fill
-                className="object-cover"
-              />
+            <div className="mt-10 p-6 bg-card border border-border rounded-lg text-right">
+              <p className="text-sm font-semibold text-foreground mb-4">
+                ההבדל בין תקרה מתוחה לגבס או עבודות רטובות
+              </p>
+              <ul className="space-y-2 text-sm text-muted">
+                <li className="flex items-center justify-end gap-3">
+                  <span>גבס דורש עבודות רטובות, שחיקת קירות ותקרה, והשלמה כללית</span>
+                  <span className="text-accent">•</span>
+                </li>
+                <li className="flex items-center justify-end gap-3">
+                  <span>תקרה מתוחה היא התקנה שחורה, נקייה, ללא אבק וללא נזקים לסביבה</span>
+                  <span className="text-accent">•</span>
+                </li>
+                <li className="flex items-center justify-end gap-3">
+                  <span>התקנה של תקרה מתוחה לוקחת בדרך כלל יום עד שלושה ימים בלבד</span>
+                  <span className="text-accent">•</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
