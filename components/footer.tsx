@@ -1,44 +1,42 @@
 import Link from "next/link"
-import Image from "next/image"
 
 export function Footer() {
   return (
-    <footer className="py-16 md:py-24 border-t border-border">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
+    <footer className="py-16 md:py-24 border-t border-border bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 gap-12 mb-16 text-right">
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="inline-block mb-6">
-              <Image src="/images/hously-logo.svg" alt="Hously" width={120} height={32} className="w-auto h-6" />
+              <span className="text-2xl font-bold text-foreground">SkyView</span>
             </Link>
-            <p className="text-muted-foreground leading-relaxed max-w-sm">
-              We design spaces that elevate living. A refined architectural experience where form, light, and intention
-              meet.
+            <p className="text-muted leading-relaxed max-w-sm">
+              תקרות מתוחות מעוצבות לבית ולעסק עם גימורים מבריקים, מט, סאטן, תאורה משולבת ועיצוב בהתאמה אישית.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="text-sm font-medium mb-4">Studio</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <h4 className="text-sm font-semibold text-foreground mb-4">ניווט</h4>
+            <ul className="space-y-3 text-sm text-muted">
               <li>
                 <Link href="#projects" className="hover:text-foreground transition-colors">
-                  Projects
+                  פרויקטים
                 </Link>
               </li>
               <li>
                 <Link href="#about" className="hover:text-foreground transition-colors">
-                  About
+                  אודות
                 </Link>
               </li>
               <li>
                 <Link href="#services" className="hover:text-foreground transition-colors">
-                  Services
+                  שירותים
                 </Link>
               </li>
               <li>
                 <Link href="#contact" className="hover:text-foreground transition-colors">
-                  Contact
+                  צור קשר
                 </Link>
               </li>
             </ul>
@@ -46,16 +44,16 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-medium mb-4">Connect</h4>
-            <ul className="space-y-3 text-sm text-muted-foreground">
+            <h4 className="text-sm font-semibold text-foreground mb-4">יצירת קשר</h4>
+            <ul className="space-y-3 text-sm text-muted">
               <li>
-                <a href="mailto:hello@hously.com" className="hover:text-foreground transition-colors">
-                  hello@hously.com
+                <a href="mailto:info@skyview.co.il" className="hover:text-foreground transition-colors">
+                  info@skyview.co.il
                 </a>
               </li>
               <li>
-                <a href="tel:+1234567890" className="hover:text-foreground transition-colors">
-                  +1 (234) 567-890
+                <a href="tel:+972722334455" className="hover:text-foreground transition-colors">
+                  +972-72-233-4455
                 </a>
               </li>
               <li>
@@ -65,7 +63,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="#" className="hover:text-foreground transition-colors">
-                  LinkedIn
+                  Facebook
                 </a>
               </li>
             </ul>
@@ -73,14 +71,14 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row md:items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© 2025 Hously. All rights reserved.</p>
-          <div className="flex gap-6">
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row-reverse md:items-center justify-between gap-4 text-sm text-muted">
+          <p>© 2025 SkyView. כל הזכויות שמורות.</p>
+          <div className="flex gap-6 flex-row-reverse">
             <Link href="#" className="hover:text-foreground transition-colors">
-              Privacy
+              פרטיות
             </Link>
             <Link href="#" className="hover:text-foreground transition-colors">
-              Terms
+              תנאים
             </Link>
           </div>
         </div>

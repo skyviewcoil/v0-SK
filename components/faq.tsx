@@ -5,34 +5,34 @@ import { Plus } from "lucide-react"
 
 const faqs = [
   {
-    question: "Where are your projects located?",
+    question: "מהי תקרה מתוחה?",
     answer:
-      "While our studio is based in San Francisco, we work on projects throughout Northern California and select locations nationwide. We believe in creating architecture that responds to its specific context and community.",
+      "תקרה מתוחה היא רשת פוליסטר או בד מיוחד המתוחה בפרופילים אלומיניום מסביב החלל. זה יוצר משטח חלק ואחיד בגימור שנבחר, מה שמאפשר אפילו להסתיר עמודים ותעלות אוויר.",
   },
   {
-    question: "What is your design process timeline?",
+    question: "כמה זמן לוקחת התקנה?",
     answer:
-      "Project timelines vary based on scope and complexity. A typical residential project takes 6-12 months from initial concept to construction documentation. We work closely with clients to establish realistic timelines that allow for thoughtful design development.",
+      "זמן ההתקנה תלוי בגודל החלל וההצורך שלך, אך בממוצע תקרה מתוחה בחדר בגודל רגיל תוקן ב-1-2 ימים. החדש שלך נקי והמהיר יחסית לשיטות מסורתיות.",
   },
   {
-    question: "How do you approach sustainable design?",
+    question: "האם זה מתאים לאמבטיה?",
     answer:
-      "Sustainability is integral to our practice, not an add-on. We prioritize passive design strategies, material selection, energy efficiency, and longevity. Every project is designed to minimize environmental impact while maximizing occupant comfort and connection to nature.",
+      "כן! תקרות מתוחות עמידות בפני לחות גבוהה ונוזלים, מה שהופכות אותן לאידיאליות לחדרי אמבטיה ומטבחים. הם לא משמשים, לא מתפיחים ופשוטים לנקוי.",
   },
   {
-    question: "What services do you offer?",
+    question: "אילו גימורים קיימים?",
     answer:
-      "We provide comprehensive architectural services including master planning, schematic design, design development, construction documentation, and construction administration. We can tailor our services to meet your project's specific needs.",
+      "ישנם שלושה גימורים עיקריים: מבריק (משטח반תוך בחזר זוהר), סאטן (מראה חלק ומעודן), ומט (סיום לא מחזיר אור). בחר בהתאם לעיצוב החדר וההשפעה הרצויה.",
   },
   {
-    question: "Do you work with existing structures?",
+    question: "האם אפשר לשלב תאורה?",
     answer:
-      "Absolutely. We enjoy the challenge of adaptive reuse and renovation projects. Whether it's a historic preservation or a modern addition, we approach existing structures with respect while bringing them into dialogue with contemporary living.",
+      "בהחלט! אנחנו מספקים ספוטים, פסי לד שקועים, תאורה היקפית ועוד. התאורה משולבת בחלק התחתון של התקרה המתוחה, יוצרת אור רך ומעוצב.",
   },
   {
-    question: "How do we get started?",
+    question: "מה עם אחריות?",
     answer:
-      "Begin with an initial consultation where we discuss your vision, site, budget, and timeline. This helps us understand if we're the right fit for your project. From there, we'll outline a customized scope of work and fee proposal.",
+      "כל התקרות המתוחות שלנו מגיעות עם אחריות של 10 שנים כנגד פגיעות ממכניות ובעיות בציפוי. אנחנו גם מספקים שירות תחזוקה קל אם יש צורך.",
   },
 ]
 
@@ -44,23 +44,23 @@ export function FAQ() {
   }
 
   return (
-    <section id="faq" className="py-20 md:py-29">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="max-w-3xl mb-16">
-          <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">FAQ</p>
-          <h2 className="text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-7xl">
-            Questions & Answers
+    <section id="faq" className="py-32 md:py-40 bg-secondary/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mb-16">
+          <p className="text-sm text-accent font-medium tracking-widest mb-3">שאלות נפוצות</p>
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
+            יש לך שאלות?
           </h2>
         </div>
 
-        <div>
+        <div className="max-w-3xl">
           {faqs.map((faq, index) => (
             <div key={index} className="border-b border-border">
               <button
                 onClick={() => toggleQuestion(index)}
-                className="w-full py-6 flex items-start justify-between gap-6 text-left group"
+                className="w-full py-6 flex items-start justify-between gap-6 text-right group flex-row-reverse"
               >
-                <span className="text-lg font-medium text-foreground transition-colors group-hover:text-foreground/70">
+                <span className="text-lg font-medium text-foreground transition-colors group-hover:text-accent">
                   {faq.question}
                 </span>
                 <Plus
@@ -75,7 +75,7 @@ export function FAQ() {
                   openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="text-muted-foreground leading-relaxed pb-6 pr-12">{faq.answer}</p>
+                <p className="text-muted leading-relaxed pb-6 pr-12">{faq.answer}</p>
               </div>
             </div>
           ))}

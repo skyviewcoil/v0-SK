@@ -1,27 +1,23 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { HighlightedText } from "./highlighted-text"
 
-const philosophyItems = [
+const benefitItems = [
   {
-    title: "Minimal, not empty",
-    description:
-      "Every element has purpose and space to breathe. We remove the unnecessary to reveal what truly matters.",
+    title: "התקנה מהירה",
+    description: "ביצוע עבודה מהיר וחסכוני בזמן",
   },
   {
-    title: "Architecture-led design",
-    description:
-      "Layouts inspired by structure, rhythm, and materiality. Buildings that speak through proportion and light.",
+    title: "עבודה נקייה יחסית",
+    description: "עם הפחתת בחלוק וחדירה של אבק",
   },
   {
-    title: "Subtle motion",
-    description:
-      "Motion supports the experience, never distracts. Movement that feels natural, like light shifting through a room.",
+    title: "התאמה אישית מלאה",
+    description: "גימורים וצבעים בהתאמה לעיצוב החלל",
   },
   {
-    title: "Timeless aesthetic",
-    description: "Elegant, calm, and enduring visual language. Designs that transcend trends and age with grace.",
+    title: "פתרונות תאורה מתקדמים",
+    description: "שילוב תאורה LED וספוטים מהודקים",
   },
 ]
 
@@ -50,53 +46,39 @@ export function Philosophy() {
   }, [])
 
   return (
-    <section id="about" className="py-32 md:py-29">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left column - Title and image */}
-          <div className="lg:sticky lg:top-32 lg:self-start">
-            <p className="text-muted-foreground text-sm tracking-[0.3em] uppercase mb-6">Our Philosophy</p>
-            <h2 className="text-6xl md:text-6xl font-medium leading-[1.15] tracking-tight mb-6 text-balance lg:text-8xl">
-              Design with
-              <br />
-              <HighlightedText>intention</HighlightedText>
-            </h2>
-
-            <div className="relative hidden lg:block">
-              <img
-                src="/images/exterior.png"
-                alt="Architectural sketch of home office workspace"
-                className="opacity-90 relative z-10 w-auto"
-              />
+    <section id="about" className="py-32 md:py-40 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+          {/* Left column - Title and intro */}
+          <div className="space-y-8">
+            <div>
+              <p className="text-sm text-accent font-medium tracking-widest mb-3">SkyView</p>
+              <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight text-pretty">
+                פתרונות תקרה מדויקים, נקיים ומהירים יותר
+              </h2>
             </div>
+
+            <p className="text-lg text-muted leading-relaxed max-w-xl">
+              תקרה מתוחה מאפשרת לקבל מראה אחיד, יוקרתי ונקי בזמן עבודה קצר, עם אפשרות לשלב תאורה, הדפסים, פרופילים מיוחדים ופתרונות לחללים פרטיים ומסחריים.
+            </p>
           </div>
 
-          {/* Right column - Description and Philosophy items */}
-          <div className="space-y-6 lg:pt-48">
-            <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12">
-              Architecture is more than structure — it's how we experience the world. We create spaces that nurture the
-              human spirit.
-            </p>
-
-            {philosophyItems.map((item, index) => (
+          {/* Right column - Benefit cards */}
+          <div className="space-y-6">
+            {benefitItems.map((item, index) => (
               <div
                 key={item.title}
                 ref={(el) => {
                   itemRefs.current[index] = el
                 }}
                 data-index={index}
-                className={`transition-all duration-700 ${
-                  visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                className={`p-6 rounded-lg bg-secondary/50 border border-border transition-all duration-700 ${
+                  visibleItems.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="flex gap-6">
-                  <span className="text-muted-foreground/50 text-sm font-medium">0{index + 1}</span>
-                  <div>
-                    <h3 className="text-xl font-medium mb-3">{item.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                  </div>
-                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                <p className="text-muted text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
