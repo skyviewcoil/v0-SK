@@ -37,6 +37,14 @@ export function Header() {
           {/* Desktop Navigation - center */}
           <nav className="hidden md:flex items-center gap-10">
             <Link
+              href="/stretch-ceiling"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
+              }`}
+            >
+              תקרה מתוחה
+            </Link>
+            <Link
               href="#faq"
               className={`text-sm font-medium transition-colors ${
                 isScrolled ? "text-foreground hover:text-accent" : "text-white/90 hover:text-white"
@@ -93,6 +101,13 @@ export function Header() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <nav className="md:hidden pb-6 pt-2 border-t border-border/20 space-y-1 bg-background/95 backdrop-blur-md -mx-4 px-4">
+            <Link
+              href="/stretch-ceiling"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block text-sm font-medium text-foreground hover:text-accent py-3 text-right"
+            >
+              תקרה מתוחה
+            </Link>
             <Link
               href="#projects"
               onClick={() => setIsMobileMenuOpen(false)}
