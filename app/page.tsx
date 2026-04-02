@@ -1,6 +1,5 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
 import { Philosophy } from "@/components/philosophy"
 import { Expertise } from "@/components/expertise"
 import { Finishes } from "@/components/finishes"
@@ -31,7 +30,6 @@ export default function Home() {
       <main className="min-h-screen">
         <Header />
         <Hero />
-        <About />
         <Philosophy />
         <Expertise />
         <Finishes />
